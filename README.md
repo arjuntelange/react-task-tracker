@@ -1,16 +1,116 @@
-# React + Vite
+# 📝 React Task Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern task management application built with React to practice real-world state management, event handling, conditional rendering, and component-based architecture.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Current Features
 
-## React Compiler
+* ➕ Add new tasks
+* ❌ Delete tasks
+* ✅ Mark tasks as completed
+* 🔄 Toggle task completion status
+* 🔍 Filter tasks:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  * All Tasks
+  * Active Tasks
+  * Completed Tasks
+* ⌨️ Add tasks using the Enter key
+* 📊 Dynamic task counter
+* 🎨 Clean and responsive user interface
+* 🆔 Unique task identification using IDs
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+* React
+* JavaScript (ES6+)
+* CSS3
+* Vite
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+│
+├── components/
+│   └── TodoList/
+│       ├── TodoList.jsx
+│       └── TodoList.css
+│
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+```
+
+---
+
+## 🚀 Getting Started
+
+### Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+### Navigate to the project
+
+```bash
+cd react-task-tracker
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 🎯 Learning Objectives
+
+This project was built to strengthen understanding of:
+
+* React Components
+* JSX
+* Props
+* State Management with `useState`
+* Event Handling
+* Conditional Rendering
+* Array Methods (`map`, `filter`)
+* Immutable State Updates
+* Dynamic UI Rendering
+
+---
+
+## 🔮 Planned Features
+
+* 💾 Local Storage Persistence
+* ✏️ Edit Existing Tasks
+* 🗑️ Clear Completed Tasks
+* 📈 Task Statistics
+* 🎨 UI Improvements
+* 🌙 Dark Mode
+* 📱 Enhanced Mobile Responsiveness
+
+---
+
+## 📸 Screenshots
+
+Screenshots will be added as the project evolves.
+
+---
+
+## 📄 License
+
+This project is created for learning and portfolio purposes.
