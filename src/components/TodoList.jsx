@@ -1,13 +1,32 @@
 import React, { useState } from "react";
-import "./TodoList.css"
+import Notification from "./Notification";
+import "./TodoList.css";
 
 function TodoList() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
+  const [notification, setNotification] = useState({
+    title: "",
+    message: "",
+    type: "",
+  });
 
   function addTask() {
     if (!task.trim()) return;
+
+    const check = tasks.some(
+      (elem) => elem.text.toLowerCase() === task.trim().toLowerCase(),
+    );
+    if (check) {
+      showNotification(
+        "⚠️ Task Already Exists",
+        "Try adding a different task.",
+        "error",
+      );
+      return;
+    }
+
     setTasks((prevTasks) => [
       ...prevTasks,
       {
@@ -17,10 +36,22 @@ function TodoList() {
       },
     ]);
     setTask("");
+
+    showNotification(
+      "🎉 Task Added",
+      "Your task has been added successfully.",
+      "success",
+    );
   }
 
   function deleteTask(taskId) {
     setTasks(tasks.filter((elem) => elem.id !== taskId));
+
+    showNotification(
+      "🗑️ Task Deleted",
+      "The task has been removed.",
+      "success",
+    );
   }
 
   function toggleTask(taskId) {
@@ -33,6 +64,8 @@ function TodoList() {
         return elem;
       }),
     );
+
+    showNotification("✅ Task Completed", "Great job! Keep going.", "success");
   }
 
   function handleKeyDown(event) {
@@ -43,6 +76,22 @@ function TodoList() {
 
   function handleFilter(filterType) {
     setFilter(filterType);
+  }
+
+  function showNotification(title, message, type) {
+    setNotification({
+      title: title,
+      message: message,
+      type: type,
+    });
+
+    setTimeout(() => {
+      setNotification({
+        title: "",
+        message: "",
+        type: "",
+      });
+    }, 2000);
   }
 
   let filteredTasks = tasks;
@@ -117,6 +166,14 @@ function TodoList() {
       <div className="counter-box">
         <span className="tasks-counter">Total Tasks: {tasks.length}</span>
       </div>
+
+      {notification.message && (
+        <Notification
+          title={notification.title}
+          message={notification.message}
+          type={notification.type}
+        />
+      )}
     </div>
   );
 }
