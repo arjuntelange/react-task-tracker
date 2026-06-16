@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Notification from "./Notification";
 import "./TodoList.css";
 
@@ -18,6 +18,8 @@ function TodoList() {
     message: "",
     type: "",
   });
+
+  const timerRef = useRef(null);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -96,7 +98,11 @@ function TodoList() {
       type: type,
     });
 
-    setTimeout(() => {
+    if(timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+
+    timerRef.current = setTimeout(() => {
       setNotification({
         title: "",
         message: "",
