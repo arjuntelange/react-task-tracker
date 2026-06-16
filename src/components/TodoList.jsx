@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Notification from "./Notification";
 import "./TodoList.css";
 
 function TodoList() {
   const [task, setTask] = useState("");
-  const [tasks, setTasks] = useState([]);
+
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
   const [filter, setFilter] = useState("all");
+
   const [notification, setNotification] = useState({
     title: "",
     message: "",
     type: "",
   });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function addTask() {
     if (!task.trim()) return;
