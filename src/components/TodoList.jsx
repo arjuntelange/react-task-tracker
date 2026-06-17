@@ -79,11 +79,7 @@ function TodoList() {
     );
 
     if (currentTask.completed) {
-      showNotification(
-        "↩️ Task Reopened",
-        "The task is active again.",
-        "info",
-      );
+      showNotification("↩️ Task Reopened", "The task is active again.", "info");
     } else {
       showNotification(
         "✅ Task Completed",
@@ -123,6 +119,26 @@ function TodoList() {
     }, 2000);
   }
 
+  function clearCompletedTasks() {
+    const checkTask = tasks.some((taskCheck) => taskCheck.completed);
+
+    if (checkTask) {
+      setTasks(tasks.filter((currentTask) => !currentTask.completed));
+
+      showNotification(
+        "🧹 Tasks Cleared",
+        "All completed tasks have been removed.",
+        "success",
+      );
+    } else {
+      showNotification(
+        "ℹ️ Nothing to Clear",
+        "There are no completed tasks to remove.",
+        "info",
+      );
+    }
+  }
+
   let filteredTasks = tasks;
 
   if (filter === "active") {
@@ -135,7 +151,8 @@ function TodoList() {
 
   return (
     <div className="container">
-      <h1>📝 Todo List</h1>
+      <h1>🚀 FlowBoard</h1>
+      <p className="app-subtitle">Organize your tasks and stay focused</p>
 
       <div className="input-section">
         <input
@@ -193,6 +210,10 @@ function TodoList() {
       </div>
 
       <div className="counter-box">
+        <button className="clear-btn" onClick={clearCompletedTasks}>
+          🧹Clear Completed
+        </button>
+
         <span className="tasks-counter">Total Tasks: {tasks.length}</span>
       </div>
 

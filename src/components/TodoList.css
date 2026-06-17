@@ -13,11 +13,16 @@
 }
 
 .container h1 {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 
   text-align: center;
 
   color: #222;
+}
+
+.app-subtitle {
+  margin-bottom: 35px;
+  text-align: center;
 }
 
 .input-section {
@@ -116,7 +121,9 @@ li button {
 
   display: flex;
 
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  align-items: center;
 }
 
 .tasks-counter {
@@ -153,6 +160,8 @@ li:has(input[type="checkbox"]:checked) {
 }
 
 .filter-section {
+  margin-bottom: 25px;
+
   display: flex;
   justify-content: flex-start;
   gap: 10px;
@@ -189,4 +198,30 @@ li:has(input[type="checkbox"]:checked) {
   font-style: italic;
   border-left: none !important;
   background: transparent !important;
+}
+
+.clear-btn {
+  background: #e0e7ff;
+  color: #4f46e5;
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 6px 10px;
+
+  cursor: pointer;
+
+  font-weight: 500;
+
+  transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: #c7d2fe;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+.clear-btn:active {
+  transform: translateY(0);
 }
