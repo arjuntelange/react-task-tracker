@@ -48,6 +48,10 @@
   border-left: 5px solid #ef4444;
 }
 
+.info {
+  border-left: 5px solid #698BF2;
+}
+
 .error h4 {
   color: #b91c1c;
 }

@@ -67,10 +67,10 @@ function TodoList() {
     );
   }
 
-  function toggleTask(taskId) {
+  function toggleTask(currentTask) {
     setTasks(
       tasks.map((elem) => {
-        if (elem.id === taskId) {
+        if (elem.id === currentTask.id) {
           return { ...elem, completed: !elem.completed };
         }
 
@@ -78,7 +78,19 @@ function TodoList() {
       }),
     );
 
-    showNotification("✅ Task Completed", "Great job! Keep going.", "success");
+    if (currentTask.completed) {
+      showNotification(
+        "↩️ Task Reopened",
+        "The task is active again.",
+        "info",
+      );
+    } else {
+      showNotification(
+        "✅ Task Completed",
+        "Great job! Keep going.",
+        "success",
+      );
+    }
   }
 
   function handleKeyDown(event) {
@@ -98,7 +110,7 @@ function TodoList() {
       type: type,
     });
 
-    if(timerRef.current) {
+    if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
 
@@ -148,7 +160,7 @@ function TodoList() {
               <input
                 type="checkbox"
                 checked={elem.completed}
-                onChange={() => toggleTask(elem.id)}
+                onChange={() => toggleTask(elem)}
               />
               <span className={elem.completed ? "completed-task" : ""}>
                 {elem.text}
