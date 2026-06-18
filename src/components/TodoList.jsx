@@ -19,6 +19,8 @@ function TodoList() {
     type: "",
   });
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   const timerRef = useRef(null);
 
   useEffect(() => {
@@ -149,6 +151,12 @@ function TodoList() {
     filteredTasks = tasks.filter((task) => task.completed);
   }
 
+  if (searchQuery.trim()) {
+    filteredTasks = filteredTasks.filter((currentTask) =>
+      currentTask.text.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+  }
+
   return (
     <div className="container">
       <h1>🚀 FlowBoard</h1>
@@ -166,6 +174,15 @@ function TodoList() {
         />
 
         <button onClick={addTask}>Add</button>
+      </div>
+
+      <div className="search-section">
+        <input
+          type="text"
+          placeholder="🔍 Search tasks..."
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+        />
       </div>
 
       <ul>
