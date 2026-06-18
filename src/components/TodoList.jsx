@@ -157,6 +157,12 @@ function TodoList() {
     );
   }
 
+  let emptyMessage = "No tasks found.";
+
+  if (searchQuery.trim() && filteredTasks.length === 0) {
+    emptyMessage = "🔍 No tasks match your search.";
+  }
+
   return (
     <div className="container">
       <h1>🚀 FlowBoard</h1>
@@ -187,7 +193,7 @@ function TodoList() {
 
       <ul>
         {filteredTasks.length === 0 ? (
-          <li className="empty-message">No tasks found.</li>
+          <li className="empty-message">{emptyMessage}</li>
         ) : (
           filteredTasks.map((elem) => (
             <li key={elem.id}>
