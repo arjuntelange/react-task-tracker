@@ -157,11 +157,15 @@ function TodoList() {
     );
   }
 
-  let emptyMessage = "No tasks found.";
+  let emptyMessage = "🎉 No tasks yet. Add your first task to get started!";
 
   if (searchQuery.trim() && filteredTasks.length === 0) {
     emptyMessage = "🔍 No tasks match your search.";
   }
+
+  const completedTasks = tasks.filter((task) => task.completed).length;
+
+  const pendingTasks = tasks.length - completedTasks;
 
   return (
     <div className="container">
@@ -232,12 +236,18 @@ function TodoList() {
         </button>
       </div>
 
+      <div className="stats-box">
+        <span>📋 Total: {tasks.length}</span>
+
+        <span>✅ Completed: {completedTasks}</span>
+
+        <span>⏳ Pending: {pendingTasks}</span>
+      </div>
+
       <div className="counter-box">
         <button className="clear-btn" onClick={clearCompletedTasks}>
           🧹Clear Completed
         </button>
-
-        <span className="tasks-counter">Total Tasks: {tasks.length}</span>
       </div>
 
       {notification.message && (
