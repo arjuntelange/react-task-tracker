@@ -11,6 +11,8 @@ function TodoList() {
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
 
+  const [priority, setPriority] = useState("Medium");
+
   const [filter, setFilter] = useState("all");
 
   const [notification, setNotification] = useState({
@@ -48,6 +50,7 @@ function TodoList() {
         id: Date.now(),
         text: task,
         completed: false,
+        priority: priority,
       },
     ]);
     setTask("");
@@ -182,6 +185,17 @@ function TodoList() {
           placeholder="Enter a task"
           value={task}
         />
+      </div>
+
+      <div className="task-controls">
+        <select
+          value={priority}
+          onChange={(event) => setPriority(event.target.value)}
+        >
+          <option value="High">🔴 High</option>
+          <option value="Medium">🟡 Medium</option>
+          <option value="Low">🟢 Low</option>
+        </select>
 
         <button onClick={addTask}>Add</button>
       </div>
@@ -209,6 +223,13 @@ function TodoList() {
               <span className={elem.completed ? "completed-task" : ""}>
                 {elem.text}
               </span>
+
+              <span
+                className={`priority-badge priority-${elem.priority.toLowerCase()}`}
+              >
+                {elem.priority}
+              </span>
+
               <button onClick={() => deleteTask(elem.id)}>❌</button>
             </li>
           ))

@@ -5,15 +5,13 @@
 }
 
 body {
-  min-height: 100vh;
-
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  min-height: 100vh;
 
-  background: #f4f6f8;
-
-  font-family: sans-serif;
+  padding-top: 40px;
+  background: #f3f4f6;
 }
 
 #root {

@@ -49,7 +49,36 @@
   border-color: #4f46e5;
 }
 
-.input-section button {
+.task-controls {
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.task-controls select {
+  padding: 10px 12px;
+
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+.task-controls select:hover {
+  border-color: #c7d2fe;
+}
+
+.task-controls select:focus {
+  border-color: #4f46e5;
+}
+
+.task-controls button {
   padding: 12px 20px;
 
   border: none;
@@ -66,12 +95,8 @@
   transition: all 0.3s ease;
 }
 
-.input-section button:hover {
+.task-controls button:hover {
   background: #4338ca;
-}
-
-.input-section button:active {
-  transform: scale(0.95);
 }
 
 .container ul {
@@ -258,4 +283,28 @@ li:has(input[type="checkbox"]:checked) {
   background: #f8fafc;
 
   font-size: 14px;
+}
+
+.priority-badge {
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.priority-high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.priority-medium {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.priority-low {
+  background: #dcfce7;
+  color: #16a34a;
 }
