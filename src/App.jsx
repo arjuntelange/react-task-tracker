@@ -1,11 +1,13 @@
 import "./App.css";
-import TodoList from "./components/TodoList";
+import Dashboard from "./components/Dashboard";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <>
-      <div className="main-container">
-        <TodoList/>
+      <div className="main-layout">
+        <Sidebar/>
+        <Dashboard/>
       </div>
     </>
   );

@@ -1,5 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import Notification from "./Notification";
+import {
+  Rocket,
+  ListTodo,
+  Star,
+  Smile,
+  Plus,
+  User,
+  FolderOpen,
+  LayoutDashboard,
+} from "lucide-react";
 import "./TodoList.css";
 
 function TodoList() {
@@ -172,8 +182,13 @@ function TodoList() {
 
   return (
     <div className="container">
-      <h1>🚀 FlowBoard</h1>
-      <p className="app-subtitle">Organize your tasks and stay focused</p>
+      <div className="container-header">
+        <h2>
+          <Rocket size={28} />
+          FlowBoard
+        </h2>
+        <p>Organize. Prioritize. Achieve.</p>
+      </div>
 
       <div className="input-section">
         <input

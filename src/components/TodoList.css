@@ -12,17 +12,25 @@
   font-family: sans-serif;
 }
 
-.container h1 {
-  margin-bottom: 10px;
+.container-header h2 {
+  margin-bottom: 6px;
 
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-  color: #222;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #4f46e5;
+  letter-spacing: -1px;
 }
 
-.app-subtitle {
-  margin-bottom: 35px;
-  text-align: center;
+.container-header p {
+  margin-bottom: 40px;
+
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #6b7280;
 }
 
 .input-section {

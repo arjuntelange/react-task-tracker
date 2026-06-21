@@ -1,9 +1,16 @@
-.main-container {
-  width: 100%;
-  min-height: 100vh;
-
+.main-layout {
   display: flex;
-  justify-content: center;
+  min-height: 100vh;
+}
 
-  padding: 40px 0;
+.sidebar {
+  width: 260px;
+  padding: 24px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+}
+
+.dashboard {
+  flex: 1;
+  padding: 30px;
 }
