@@ -1,15 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Notification from "./Notification";
-import {
-  Rocket,
-  ListTodo,
-  Star,
-  Smile,
-  Plus,
-  User,
-  FolderOpen,
-  LayoutDashboard,
-} from "lucide-react";
+import { Rocket } from "lucide-react";
 import "./TodoList.css";
 
 function TodoList() {

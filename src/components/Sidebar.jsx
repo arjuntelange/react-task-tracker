@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import "./Sidebar.css";
 
-function Sidebar() {
+function Sidebar({ lists, selectedList, setSelectedList, setList }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -41,17 +41,32 @@ function Sidebar() {
         <h3>Tasks</h3>
 
         <ul>
-          <li>
-            <Smile size={18} />
-            Personal Tasks
-          </li>
-          <li>
-            <Rocket size={18} />
-            Tech Journey
-          </li>
+          {lists.map((list) => (
+            <li
+              key={list.id}
+              onClick={() => setSelectedList(list.id)}
+              className={selectedList === list.id ? "active-sidebar-item" : ""}
+            >
+              {list.name}
+            </li>
+          ))}
         </ul>
 
-        <button>
+        <button
+          onClick={() => {
+            const listName = prompt("Enter list name");
+            
+            if(!listName.trim()) return;
+            
+            setList((prevLists) => [
+              ...prevLists,
+              {
+                id: Date.now(),
+                name: listName,
+              },
+            ]);
+          }}
+        >
           <Plus size={18} />
           New List
         </button>
