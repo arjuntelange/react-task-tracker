@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Sidebar from "./components/Sidebar";
 
 function App() {
-  const [lists, setList] = useState([]);
+  const [lists, setList] = useState(() => {
+    const savedList = localStorage.getItem("lists");
+
+    return savedList ? JSON.parse(savedList) : [];
+  });
 
   const [selectedList, setSelectedList] = useState();
+
+  useEffect(() => {
+    localStorage.setItem("lists", JSON.stringify(lists));
+    console.log(lists);
+  }, [lists]);
 
   return (
     <>
@@ -17,11 +26,8 @@ function App() {
           setSelectedList={setSelectedList}
           setList={setList}
         />
-        
-        <Dashboard 
-          selectedList={selectedList} 
-          lists={lists} 
-        />
+
+        <Dashboard selectedList={selectedList} lists={lists} />
       </div>
     </>
   );

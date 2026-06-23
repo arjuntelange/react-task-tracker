@@ -24,7 +24,10 @@ function Sidebar({ lists, selectedList, setSelectedList, setList }) {
 
       <nav className="sidebar-nav">
         <ul>
-          <li className="active-sidebar-item">
+          <li
+            className="active-sidebar-item"
+            onClick={() => setSelectedList("all") }
+          >
             <ListTodo size={18} />
             All Tasks
           </li>
@@ -55,9 +58,9 @@ function Sidebar({ lists, selectedList, setSelectedList, setList }) {
         <button
           onClick={() => {
             const listName = prompt("Enter list name");
-            
-            if(!listName.trim()) return;
-            
+
+            if (!listName.trim()) return;
+
             setList((prevLists) => [
               ...prevLists,
               {

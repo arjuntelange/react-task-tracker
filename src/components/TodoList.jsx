@@ -3,7 +3,7 @@ import Notification from "./Notification";
 import { Rocket } from "lucide-react";
 import "./TodoList.css";
 
-function TodoList() {
+function TodoList({ lists, selectedList }) {
   const [task, setTask] = useState("");
 
   const [tasks, setTasks] = useState(() => {
@@ -52,6 +52,7 @@ function TodoList() {
         text: task,
         completed: false,
         priority: priority,
+        listId: selectedList,
       },
     ]);
     setTask("");
@@ -146,6 +147,12 @@ function TodoList() {
   }
 
   let filteredTasks = tasks;
+
+  if (selectedList !== "all") {
+    filteredTasks = filteredTasks.filter(
+      (currentTask) => currentTask.listId === selectedList,
+    );
+  }
 
   if (filter === "active") {
     filteredTasks = tasks.filter((task) => !task.completed);
