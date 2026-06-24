@@ -25,13 +25,16 @@ function Sidebar({ lists, selectedList, setSelectedList, setList }) {
       <nav className="sidebar-nav">
         <ul>
           <li
-            className="active-sidebar-item"
-            onClick={() => setSelectedList("all") }
+            className={selectedList === "all" ? "active-sidebar-item" : ""}
+            onClick={() => setSelectedList("all")}
           >
             <ListTodo size={18} />
             All Tasks
           </li>
-          <li>
+          <li
+            className={selectedList === "starred" ? "active-sidebar-item" : ""}
+            onClick={() => setSelectedList("starred")}
+          >
             <Star size={18} />
             Starred
           </li>

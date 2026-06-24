@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Notification from "./Notification";
-import { Rocket } from "lucide-react";
+import { Rocket, Star } from "lucide-react";
 import "./TodoList.css";
 
 function TodoList({ lists, selectedList }) {
@@ -53,6 +53,7 @@ function TodoList({ lists, selectedList }) {
         completed: false,
         priority: priority,
         listId: selectedList,
+        starred: false,
       },
     ]);
     setTask("");
@@ -146,9 +147,25 @@ function TodoList({ lists, selectedList }) {
     }
   }
 
+  function toggleStar(currentTask) {
+    setTasks(
+      tasks.map((elem) => {
+        if (elem.id === currentTask.id) {
+          return { ...elem, starred: !elem.starred };
+        }
+
+        return elem;
+      }),
+    );
+  }
+
   let filteredTasks = tasks;
 
-  if (selectedList !== "all") {
+  if (selectedList === "starred") {
+    filteredTasks = filteredTasks.filter(
+      (currentTask) => currentTask.starred === true,
+    );
+  } else if (selectedList !== "all") {
     filteredTasks = filteredTasks.filter(
       (currentTask) => currentTask.listId === selectedList,
     );
@@ -233,6 +250,14 @@ function TodoList({ lists, selectedList }) {
                 checked={elem.completed}
                 onChange={() => toggleTask(elem)}
               />
+
+              <button
+                className={`star-btn ${elem.starred ? "starred" : ""}`}
+                onClick={() => toggleStar(elem)}
+              >
+                <Star size={18} fill={elem.starred ? "currentColor" : "none"} />
+              </button>
+
               <span className={elem.completed ? "completed-task" : ""}>
                 {elem.text}
               </span>
