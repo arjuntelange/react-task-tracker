@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Notification from "./Notification";
+import StatsCards from "./StatsCards";
 import { Rocket, Star } from "lucide-react";
 import "./TodoList.css";
+import heroBg from "../assets/hero-bg-img.png";
 
 function TodoList({ lists, selectedList }) {
   const [task, setTask] = useState("");
@@ -191,19 +193,45 @@ function TodoList({ lists, selectedList }) {
     emptyMessage = "🔍 No tasks match your search.";
   }
 
+  const totalTasks = tasks.length;
+
   const completedTasks = tasks.filter((task) => task.completed).length;
 
   const pendingTasks = tasks.length - completedTasks;
 
+  const highPriorityTasks = tasks.filter(
+    (task) => task.priority === "High",
+  ).length;
+
   return (
     <div className="container">
-      <div className="container-header">
-        <h2>
-          <Rocket size={28} />
-          FlowBoard
-        </h2>
-        <p>Organize. Prioritize. Achieve.</p>
+      <div className="hero-banner">
+        <img src={heroBg} alt="Hero Banner" />
+
+        <div className="hero-overlay">
+          <div className="hero-content">
+            <h1>Good Morning, Arjun 👋</h1>
+
+            <p>Focus on today, create your future.</p>
+          </div>
+
+          <div className="hero-search">
+            <input
+              type="text"
+              placeholder=" Search tasks... 🔍"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+            />
+          </div>
+        </div>
       </div>
+
+      <StatsCards
+        totalTasks={totalTasks}
+        completedTasks={completedTasks}
+        pendingTasks={pendingTasks}
+        highPriorityTasks={highPriorityTasks}
+      />
 
       <div className="input-section">
         <input
@@ -228,15 +256,6 @@ function TodoList({ lists, selectedList }) {
         </select>
 
         <button onClick={addTask}>Add</button>
-      </div>
-
-      <div className="search-section">
-        <input
-          type="text"
-          placeholder="🔍 Search tasks..."
-          value={searchQuery}
-          onChange={(event) => setSearchQuery(event.target.value)}
-        />
       </div>
 
       <ul>
@@ -296,7 +315,7 @@ function TodoList({ lists, selectedList }) {
       </div>
 
       <div className="stats-box">
-        <span>📋 Total: {tasks.length}</span>
+        <span>📋 Total: {totalTasks}</span>
 
         <span>✅ Completed: {completedTasks}</span>
 

@@ -1,0 +1,81 @@
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+  margin: 25px 0;
+  padding: 0 30px;
+}
+
+.stat-card {
+  padding: 22px;
+
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+  transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.icon-box {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+}
+
+.stat-card h4 {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.stat-card span {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.stat-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Individual colors */
+
+.total-card .icon-box {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.completed-card .icon-box {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.pending-card .icon-box {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.priority-card .icon-box {
+  background: #fee2e2;
+  color: #dc2626;
+}
