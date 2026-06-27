@@ -3,15 +3,13 @@
   grid-template-columns: repeat(4, 1fr);
 
   gap: 18px;
-  margin: 25px 0;
+  margin: 40px 0;
   padding: 0 30px;
 }
 
 .stat-card {
   padding: 22px;
 
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 18px;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
@@ -60,8 +58,24 @@
 
 /* Individual colors */
 
+.total-card {
+  background: linear-gradient(135deg, #ede9fe 0%, #ffffff 50%, #ddd6fe 100%);
+}
+
+.completed-card {
+  background: linear-gradient(135deg, #d1fae5 0%, #ffffff 50%, #a7f3d0 100%);
+}
+
+.pending-card {
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 50%, #fde68a 100%);
+}
+
+.priority-card {
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 50%, #fecaca 100%);
+}
+
 .total-card .icon-box {
-  background: #eef2ff;
+  background: #ddd6fe;
   color: #4f46e5;
 }
 

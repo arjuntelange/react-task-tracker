@@ -4,6 +4,7 @@ import StatsCards from "./StatsCards";
 import { Rocket, Star } from "lucide-react";
 import "./TodoList.css";
 import heroBg from "../assets/hero-bg-img.png";
+import InputSection from "./InputSection";
 
 function TodoList({ lists, selectedList }) {
   const [task, setTask] = useState("");
@@ -34,6 +35,16 @@ function TodoList({ lists, selectedList }) {
 
   function addTask() {
     if (!task.trim()) return;
+
+    if (selectedList === "all" || selectedList === "starred") {
+      showNotification(
+        "📂 Select a List",
+        "Please choose a task list before adding tasks.",
+        "info",
+      );
+
+      return;
+    }
 
     const check = tasks.some(
       (elem) => elem.text.toLowerCase() === task.trim().toLowerCase(),
@@ -174,11 +185,11 @@ function TodoList({ lists, selectedList }) {
   }
 
   if (filter === "active") {
-    filteredTasks = tasks.filter((task) => !task.completed);
+    filteredTasks = filteredTasks.filter((task) => !task.completed);
   }
 
   if (filter === "completed") {
-    filteredTasks = tasks.filter((task) => task.completed);
+    filteredTasks = filteredTasks.filter((task) => task.completed);
   }
 
   if (searchQuery.trim()) {
@@ -233,30 +244,14 @@ function TodoList({ lists, selectedList }) {
         highPriorityTasks={highPriorityTasks}
       />
 
-      <div className="input-section">
-        <input
-          onChange={(event) => {
-            setTask(event.target.value);
-          }}
-          onKeyDown={handleKeyDown}
-          type="text"
-          placeholder="Enter a task"
-          value={task}
-        />
-      </div>
-
-      <div className="task-controls">
-        <select
-          value={priority}
-          onChange={(event) => setPriority(event.target.value)}
-        >
-          <option value="High">🔴 High</option>
-          <option value="Medium">🟡 Medium</option>
-          <option value="Low">🟢 Low</option>
-        </select>
-
-        <button onClick={addTask}>Add</button>
-      </div>
+      <InputSection
+        task={task}
+        setTask={setTask}
+        priority={priority}
+        setPriority={setPriority}
+        onAddTask={addTask}
+        onHandleKeyDown={handleKeyDown}
+      />
 
       <ul>
         {filteredTasks.length === 0 ? (

@@ -1,0 +1,97 @@
+.addtask-section {
+  margin: 0 30px;
+  margin-bottom: 60px;
+  padding: 22px;
+
+  width: 75%;
+  max-width: 900px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(248, 250, 252, 0.95)
+  );
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+}
+
+.input-section input {
+  flex: 1;
+
+  padding: 12px 15px;
+
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+
+  font-size: 1rem;
+
+  outline: none;
+
+  transition: all 0.3s ease;
+}
+
+.input-section input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+.task-controls {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.task-controls select {
+  padding: 10px 12px;
+
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+.task-controls select:hover {
+  border-color: #c7d2fe;
+}
+
+.task-controls select:focus {
+  border-color: #4f46e5;
+}
+
+.add-button {
+  padding: 12px 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.add-button:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+}
