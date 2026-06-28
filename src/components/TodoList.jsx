@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Rocket, Star } from "lucide-react";
+import heroBg from "../assets/hero-bg-img.png";
+
 import Notification from "./Notification";
 import StatsCards from "./StatsCards";
-import { Rocket, Star } from "lucide-react";
-import "./TodoList.css";
-import heroBg from "../assets/hero-bg-img.png";
 import InputSection from "./InputSection";
+import TasksBoard from "./TasksBoard";
+import "./TodoList.css";
 
 function TodoList({ lists, selectedList }) {
   const [task, setTask] = useState("");
@@ -253,75 +255,17 @@ function TodoList({ lists, selectedList }) {
         onHandleKeyDown={handleKeyDown}
       />
 
-      <ul>
-        {filteredTasks.length === 0 ? (
-          <li className="empty-message">{emptyMessage}</li>
-        ) : (
-          filteredTasks.map((elem) => (
-            <li key={elem.id}>
-              <input
-                type="checkbox"
-                checked={elem.completed}
-                onChange={() => toggleTask(elem)}
-              />
+      <TasksBoard
+        filter={filter}
+        filteredTasks={filteredTasks}
+        emptyMessage={emptyMessage}
 
-              <button
-                className={`star-btn ${elem.starred ? "starred" : ""}`}
-                onClick={() => toggleStar(elem)}
-              >
-                <Star size={18} fill={elem.starred ? "currentColor" : "none"} />
-              </button>
-
-              <span className={elem.completed ? "completed-task" : ""}>
-                {elem.text}
-              </span>
-
-              <span
-                className={`priority-badge priority-${elem.priority.toLowerCase()}`}
-              >
-                {elem.priority}
-              </span>
-
-              <button onClick={() => deleteTask(elem.id)}>❌</button>
-            </li>
-          ))
-        )}
-      </ul>
-
-      <div className="filter-section">
-        <button
-          className={filter === "all" ? "active-filter" : ""}
-          onClick={() => handleFilter("all")}
-        >
-          All
-        </button>
-        <button
-          className={filter === "active" ? "active-filter" : ""}
-          onClick={() => handleFilter("active")}
-        >
-          Active
-        </button>
-        <button
-          className={filter === "completed" ? "active-filter" : ""}
-          onClick={() => handleFilter("completed")}
-        >
-          Completed
-        </button>
-      </div>
-
-      <div className="stats-box">
-        <span>📋 Total: {totalTasks}</span>
-
-        <span>✅ Completed: {completedTasks}</span>
-
-        <span>⏳ Pending: {pendingTasks}</span>
-      </div>
-
-      <div className="counter-box">
-        <button className="clear-btn" onClick={clearCompletedTasks}>
-          🧹Clear Completed
-        </button>
-      </div>
+        toggleTask={toggleTask}
+        toggleStar={toggleStar}
+        deleteTask={deleteTask}
+        handleFilter={handleFilter}
+        clearCompletedTasks={clearCompletedTasks}
+      />
 
       {notification.message && (
         <Notification
