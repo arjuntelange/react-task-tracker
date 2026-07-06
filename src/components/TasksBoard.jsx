@@ -16,7 +16,7 @@ function TasksBoard({
   const [openMenu, setOpenMenu] = useState(null);
 
   return (
-    <div className="tasks-container">
+    <section className="tasks-container">
       <div className="filter-section">
         <button
           className={filter === "all" ? "active-filter" : ""}
@@ -108,7 +108,7 @@ function TasksBoard({
           🧹Clear Completed
         </button>
       </div>
-    </div>
+    </section>
   );
 }
 

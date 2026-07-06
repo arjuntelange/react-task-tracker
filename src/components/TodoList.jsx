@@ -239,33 +239,38 @@ function TodoList({ lists, selectedList }) {
         </div>
       </div>
 
-      <StatsCards
-        totalTasks={totalTasks}
-        completedTasks={completedTasks}
-        pendingTasks={pendingTasks}
-        highPriorityTasks={highPriorityTasks}
-      />
+      <div className="dashboard-content">
+        <div className="main-content">
+          <StatsCards
+            totalTasks={totalTasks}
+            completedTasks={completedTasks}
+            pendingTasks={pendingTasks}
+            highPriorityTasks={highPriorityTasks}
+          />
 
-      <InputSection
-        task={task}
-        setTask={setTask}
-        priority={priority}
-        setPriority={setPriority}
-        onAddTask={addTask}
-        onHandleKeyDown={handleKeyDown}
-      />
+          <InputSection
+            task={task}
+            setTask={setTask}
+            priority={priority}
+            setPriority={setPriority}
+            onAddTask={addTask}
+            onHandleKeyDown={handleKeyDown}
+          />
 
-      <TasksBoard
-        filter={filter}
-        filteredTasks={filteredTasks}
-        emptyMessage={emptyMessage}
+          <TasksBoard
+            filter={filter}
+            filteredTasks={filteredTasks}
+            emptyMessage={emptyMessage}
+            toggleTask={toggleTask}
+            toggleStar={toggleStar}
+            deleteTask={deleteTask}
+            handleFilter={handleFilter}
+            clearCompletedTasks={clearCompletedTasks}
+          />
+        </div>
 
-        toggleTask={toggleTask}
-        toggleStar={toggleStar}
-        deleteTask={deleteTask}
-        handleFilter={handleFilter}
-        clearCompletedTasks={clearCompletedTasks}
-      />
+        <aside className="dashboard-sidebar">Dashboard Sidebar</aside>
+      </div>
 
       {notification.message && (
         <Notification

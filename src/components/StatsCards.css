@@ -1,12 +1,12 @@
 .stats-grid {
+  margin-bottom: 40px;
+
+  width: 100%;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  width: 75%;
-  max-width: 900px;
-
   gap: 18px;
-  margin: 24px 30px;
 }
 
 .stat-card {

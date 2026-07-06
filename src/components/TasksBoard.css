@@ -1,10 +1,8 @@
 .tasks-container {
-  margin: 0 30px;
   margin-bottom: 40px;
   padding: 22px;
 
-  width: 75%;
-  max-width: 900px;
+  width: 100%;
 
   background: linear-gradient(
     135deg,
@@ -54,7 +52,7 @@
 .task-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 
   flex: 1;
   min-width: 0;
@@ -261,4 +259,28 @@ li:has(input[type="checkbox"]:checked) {
 .menu-dropdown button:hover {
   background: #fef2f2;
   color: #dc2626;
+}
+
+.priority-badge {
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.priority-high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.priority-medium {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.priority-low {
+  background: #dcfce7;
+  color: #16a34a;
 }

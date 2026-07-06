@@ -1,10 +1,8 @@
 .addtask-section {
-  margin: 0 30px;
   margin-bottom: 40px;
   padding: 22px;
 
-  width: 75%;
-  max-width: 900px;
+  width: 100%;
 
   background: linear-gradient(
     135deg,
@@ -61,6 +59,8 @@
   cursor: pointer;
 
   outline: none;
+
+  transition: all 0.3s ease;
 }
 
 .task-controls select:hover {
@@ -69,6 +69,7 @@
 
 .task-controls select:focus {
   border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
 }
 
 .add-button {
