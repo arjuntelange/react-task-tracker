@@ -1,13 +1,10 @@
 import "./DashboardSidebar.css";
+import MiniCalendar from "./MiniCalendar";
 
 function DashboardSidebar() {
   return (
     <aside className="dashboard-sidebar">
-
-      <div className="sidebar-card">
-        <h3>📅 Calendar</h3>
-        <p>Calendar Coming Soon</p>
-      </div>
+      <MiniCalendar />
 
       <div className="sidebar-card">
         <h3>📊 Progress</h3>
@@ -25,7 +22,6 @@ function DashboardSidebar() {
         <button>Create Task</button>
         <button>Create Project</button>
       </div>
-
     </aside>
   );
 }
