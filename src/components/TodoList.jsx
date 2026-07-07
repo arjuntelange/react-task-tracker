@@ -7,6 +7,7 @@ import StatsCards from "./StatsCards";
 import InputSection from "./InputSection";
 import TasksBoard from "./TasksBoard";
 import "./TodoList.css";
+import DashboardSidebar from "./DashboardSidebar";
 
 function TodoList({ lists, selectedList }) {
   const [task, setTask] = useState("");
@@ -269,7 +270,7 @@ function TodoList({ lists, selectedList }) {
           />
         </div>
 
-        <aside className="dashboard-sidebar">Dashboard Sidebar</aside>
+        <DashboardSidebar />
       </div>
 
       {notification.message && (

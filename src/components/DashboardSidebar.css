@@ -1,0 +1,42 @@
+.dashboard-sidebar {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.sidebar-card {
+  padding: 20px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(0,0,0,0.05);
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.sidebar-card h3 {
+  margin-bottom: 15px;
+
+  font-size: 1rem;
+}
+
+.sidebar-card button {
+  width: 100%;
+
+  padding: 10px;
+
+  margin-bottom: 10px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #eef2ff;
+
+  cursor: pointer;
+}
