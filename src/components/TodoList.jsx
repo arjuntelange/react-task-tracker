@@ -217,6 +217,9 @@ function TodoList({ lists, selectedList }) {
     (task) => task.priority === "High",
   ).length;
 
+  const completionRate =
+    totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
+
   return (
     <div className="container">
       <div className="hero-banner">
@@ -270,7 +273,12 @@ function TodoList({ lists, selectedList }) {
           />
         </div>
 
-        <DashboardSidebar />
+        <DashboardSidebar
+          completionRate={completionRate}
+          totalTasks={totalTasks}
+          completedTasks={completedTasks}
+          pendingTasks={pendingTasks}
+        />
       </div>
 
       {notification.message && (

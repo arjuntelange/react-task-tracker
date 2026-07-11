@@ -1,15 +1,19 @@
 import "./DashboardSidebar.css";
 import MiniCalendar from "./MiniCalendar";
+import { ChartColumn } from "lucide-react";
+import ProgressOverview from "./ProgressOverview";
 
-function DashboardSidebar() {
+function DashboardSidebar({ completionRate, totalTasks, completedTasks, pendingTasks }) {
   return (
     <aside className="dashboard-sidebar">
       <MiniCalendar />
 
-      <div className="sidebar-card">
-        <h3>📊 Progress</h3>
-        <p>42% Completed</p>
-      </div>
+      <ProgressOverview
+        completionRate={completionRate}
+        totalTasks={totalTasks}
+        completedTasks={completedTasks}
+        pendingTasks={pendingTasks}
+      />
 
       <div className="sidebar-card">
         <h3>💬 Quote</h3>

@@ -1,4 +1,5 @@
 import "./MiniCalendar.css";
+import { CalendarDays } from "lucide-react";
 
 function MiniCalendar() {
   const today = new Date();
@@ -28,6 +29,7 @@ function MiniCalendar() {
   return (
     <div className="calendar-card">
       <h3>
+        <CalendarDays size={20} />
         {month} {year}
       </h3>
 
