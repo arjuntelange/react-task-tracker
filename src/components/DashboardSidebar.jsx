@@ -2,8 +2,14 @@ import "./DashboardSidebar.css";
 import MiniCalendar from "./MiniCalendar";
 import { ChartColumn } from "lucide-react";
 import ProgressOverview from "./ProgressOverview";
+import DailyQuote from "./DailyQuote";
 
-function DashboardSidebar({ completionRate, totalTasks, completedTasks, pendingTasks }) {
+function DashboardSidebar({
+  completionRate,
+  totalTasks,
+  completedTasks,
+  pendingTasks,
+}) {
   return (
     <aside className="dashboard-sidebar">
       <MiniCalendar />
@@ -15,10 +21,7 @@ function DashboardSidebar({ completionRate, totalTasks, completedTasks, pendingT
         pendingTasks={pendingTasks}
       />
 
-      <div className="sidebar-card">
-        <h3>💬 Quote</h3>
-        <p>Small progress is still progress.</p>
-      </div>
+      <DailyQuote />
 
       <div className="sidebar-card">
         <h3>⚡ Quick Actions</h3>

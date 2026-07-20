@@ -1,0 +1,70 @@
+.quote-card {
+  padding: 20px;
+
+  background: white;
+  border-radius: 18px;
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spin-btn {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #eef2ff;
+  border: none;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.spin-btn:hover {
+  background: #ddd6fe;
+  transform: scale(1.08);
+}
+
+.spin-btn.spinning {
+  animation: spin 0.5s ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card-title h3 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 6px;
+
+  color: #4f46e5;
+  font-size: 1.2rem;
+}
+
+.quote-card p {
+  padding: 0 15px;
+  margin: 12px 0;
+
+  color: #4b5563;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5;
+}
