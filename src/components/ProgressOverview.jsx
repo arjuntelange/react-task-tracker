@@ -32,10 +32,14 @@ function ProgressOverview({
             ></div>
           </div>
 
-          <p>
-            Completed {completedTasks} / {totalTasks} tasks
+          <p className="progress-message">
+            {completionRate >= 80
+              ? "🔥 Amazing progress!"
+              : completionRate >= 50
+                ? "🚀 Keep the momentum going!"
+                : "💪 Every task counts."}
           </p>
-
+          
           <div className="progress-stats">
             <div>
               <strong>{completedTasks}</strong>
