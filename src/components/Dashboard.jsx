@@ -1,5 +1,6 @@
 import React from "react";
 import TodoList from "./TodoList";
+import "./Dashboard.css"
 
 function Dashboard({lists, selectedList}) {
   return (

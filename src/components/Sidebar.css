@@ -1,14 +1,18 @@
 .sidebar {
   padding: 30px 20px;
 
-  width: 260px;
-  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
 
-  background: #ffffff;
+  width: 280px;
+  height: 100vh;
+
+  background: #fff;
   border-right: 1px solid #e5e7eb;
-  /* box-shadow: 4px 0 12px rgba(0, 0, 0, 0.04); */
-
   font-family: sans-serif;
+
+  overflow-y: auto;
 }
 
 .sidebar-header h2 {

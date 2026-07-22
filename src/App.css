@@ -1,15 +1,6 @@
 .main-layout {
   display: flex;
   min-height: 100vh;
-}
 
-.sidebar {
-  width: 280px;
-  padding: 24px;
-  background: white;
-  border-right: 1px solid #e5e7eb;
-}
-
-.dashboard {
-  flex: 1;
+  position: relative;
 }
