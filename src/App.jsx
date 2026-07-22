@@ -10,7 +10,7 @@ function App() {
     return savedList ? JSON.parse(savedList) : [];
   });
 
-  const [selectedList, setSelectedList] = useState();
+  const [selectedList, setSelectedList] = useState("dashboard");
 
   useEffect(() => {
     localStorage.setItem("lists", JSON.stringify(lists));

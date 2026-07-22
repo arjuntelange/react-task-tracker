@@ -23,12 +23,12 @@ function DashboardSidebar({
 
       <DailyQuote />
 
-      <div className="sidebar-card">
+      {/* <div className="sidebar-card">
         <h3>⚡ Quick Actions</h3>
 
         <button>Create Task</button>
         <button>Create Project</button>
-      </div>
+      </div> */}
     </aside>
   );
 }

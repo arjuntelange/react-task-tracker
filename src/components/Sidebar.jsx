@@ -8,6 +8,7 @@ import {
   User,
   FolderOpen,
   LayoutDashboard,
+  House,
 } from "lucide-react";
 import "./Sidebar.css";
 
@@ -25,12 +26,22 @@ function Sidebar({ lists, selectedList, setSelectedList, setList }) {
       <nav className="sidebar-nav">
         <ul>
           <li
+            className={
+              selectedList === "dashboard" ? "active-sidebar-item" : ""
+            }
+            onClick={() => setSelectedList("dashboard")}
+          >
+            <House size={18} /> DashBoard
+          </li>
+
+          <li
             className={selectedList === "all" ? "active-sidebar-item" : ""}
             onClick={() => setSelectedList("all")}
           >
             <ListTodo size={18} />
             All Tasks
           </li>
+
           <li
             className={selectedList === "starred" ? "active-sidebar-item" : ""}
             onClick={() => setSelectedList("starred")}

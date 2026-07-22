@@ -39,7 +39,11 @@ function TodoList({ lists, selectedList }) {
   function addTask() {
     if (!task.trim()) return;
 
-    if (selectedList === "all" || selectedList === "starred") {
+    if (
+      selectedList === "all" ||
+      selectedList === "starred" ||
+      selectedList === "dashboard"
+    ) {
       showNotification(
         "📂 Select a List",
         "Please choose a task list before adding tasks.",
@@ -177,14 +181,22 @@ function TodoList({ lists, selectedList }) {
 
   let filteredTasks = tasks;
 
-  if (selectedList === "starred") {
-    filteredTasks = filteredTasks.filter(
-      (currentTask) => currentTask.starred === true,
-    );
-  } else if (selectedList !== "all") {
-    filteredTasks = filteredTasks.filter(
-      (currentTask) => currentTask.listId === selectedList,
-    );
+  switch (selectedList) {
+    case "starred":
+      filteredTasks = filteredTasks.filter((task) => task.starred);
+      break;
+
+    case "dashboard":
+      filteredTasks = filteredTasks.filter((task) => !task.completed);
+      break;
+
+    case "all":
+      break;
+
+    default:
+      filteredTasks = filteredTasks.filter(
+        (task) => task.listId === selectedList,
+      );
   }
 
   if (filter === "active") {
