@@ -9,6 +9,7 @@ import {
   FolderOpen,
   LayoutDashboard,
   House,
+  ClipboardCheck,
 } from "lucide-react";
 import "./Sidebar.css";
 
@@ -47,7 +48,17 @@ function Sidebar({ lists, selectedList, setSelectedList, setList }) {
             onClick={() => setSelectedList("starred")}
           >
             <Star size={18} />
-            Starred
+            Important
+          </li>
+
+          <li
+            className={
+              selectedList === "completed" ? "active-sidebar-item" : ""
+            }
+            onClick={() => setSelectedList("completed")}
+          >
+            <ClipboardCheck size={18} />
+            Completed
           </li>
         </ul>
       </nav>

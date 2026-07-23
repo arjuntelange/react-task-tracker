@@ -42,7 +42,8 @@ function TodoList({ lists, selectedList }) {
     if (
       selectedList === "all" ||
       selectedList === "starred" ||
-      selectedList === "dashboard"
+      selectedList === "dashboard" ||
+      selectedList === "completed"
     ) {
       showNotification(
         "📂 Select a List",
@@ -189,6 +190,9 @@ function TodoList({ lists, selectedList }) {
     case "dashboard":
       filteredTasks = filteredTasks.filter((task) => !task.completed);
       break;
+
+    case "completed":
+      filteredTasks = filteredTasks.filter((task) => task.completed);
 
     case "all":
       break;

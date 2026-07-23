@@ -4,7 +4,7 @@
   background: white;
   border: 1px solid rgba(99, 102, 241, 0.12);
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .calendar-card h3 {
@@ -22,9 +22,12 @@
 .calendar-weekdays,
 .calendar-grid {
   display: grid;
-
   grid-template-columns: repeat(7, 1fr);
   gap: 6px;
+}
+
+.calendar-weekdays {
+  margin-bottom: 12px;
 }
 
 .calendar-weekdays span {
